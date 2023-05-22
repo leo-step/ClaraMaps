@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+</head>
+<body>
+    <a href="map.html?rect22">rect22</a><br>
+
+    <a href="map.html?rect24">rect24</a><br>
+
+    <a href="map.html?rect9">rect9</a><br>
+
+    <a href="map.html?location_mark">location_mark</a><br>
+
+    <object id="svgMap" type="image/svg+xml" data="map.svg"></object>
+    <style>
+        @keyframes spinner-line-fade-more {
+            0%, 100% {
+                opacity: 0; /* minimum opacity */
+            }
+
+            1% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes spinner-line-fade-quick {
+            0%, 39%, 100% {
+                opacity: 0.25; /* minimum opacity */
+            }
+
+            40% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes spinner-line-fade-default {
+            0%, 100% {
+                opacity: 0.22; /* minimum opacity */
+            }
+
+            1% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes spinner-line-shrink {
+            0%, 25%, 100% {
+                /* minimum scale and opacity */
+                transform: scale(0.5);
+                opacity: 0.25;
+            }
+
+            26% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        </style>
+    <div class="spinner" role="progressbar" style="position: absolute; width: 0px; z-index: 2000000000; left: 50%; top: 24%; transform: scale(0.5);"><div style="position: absolute; top: -26px; width: 86px; height: 52px; background: transparent; border-radius: 0px; transform-origin: left center; transform: rotate(30deg) translateX(0px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 255); border-radius: 0px; box-shadow: transparent 0px 0px 5px; animation: 0.909091s linear -0.909091s infinite normal none running spinner-line-fade-default;"></div></div><div style="position: absolute; top: -26px; width: 86px; height: 52px; background: transparent; border-radius: 0px; transform-origin: left center; transform: rotate(90deg) translateX(0px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 255); border-radius: 0px; box-shadow: transparent 0px 0px 5px; animation: 0.909091s linear -0.757576s infinite normal none running spinner-line-fade-default;"></div></div><div style="position: absolute; top: -26px; width: 86px; height: 52px; background: transparent; border-radius: 0px; transform-origin: left center; transform: rotate(150deg) translateX(0px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 255); border-radius: 0px; box-shadow: transparent 0px 0px 5px; animation: 0.909091s linear -0.606061s infinite normal none running spinner-line-fade-default;"></div></div><div style="position: absolute; top: -26px; width: 86px; height: 52px; background: transparent; border-radius: 0px; transform-origin: left center; transform: rotate(210deg) translateX(0px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 255); border-radius: 0px; box-shadow: transparent 0px 0px 5px; animation: 0.909091s linear -0.454545s infinite normal none running spinner-line-fade-default;"></div></div><div style="position: absolute; top: -26px; width: 86px; height: 52px; background: transparent; border-radius: 0px; transform-origin: left center; transform: rotate(270deg) translateX(0px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 255); border-radius: 0px; box-shadow: transparent 0px 0px 5px; animation: 0.909091s linear -0.30303s infinite normal none running spinner-line-fade-default;"></div></div><div style="position: absolute; top: -26px; width: 86px; height: 52px; background: transparent; border-radius: 0px; transform-origin: left center; transform: rotate(330deg) translateX(0px);"><div style="width: 100%; height: 100%; background: rgb(0, 0, 255); border-radius: 0px; box-shadow: transparent 0px 0px 5px; animation: 0.909091s linear -0.151515s infinite normal none running spinner-line-fade-default;"></div></div></div>
+    <script>
+
+        window.onload = function () {
+
+            var search = window.location.search
+
+            if (search.length > 0) {
+
+                var map = document.getElementById("svgMap");
+
+                if (map != null) {
+
+                    var mapDoc = map.contentDocument;
+
+                    if (mapDoc != null) {
+
+                        var svgItem = mapDoc.getElementById(search.replace('?', ''));
+
+                        if (svgItem != null) {
+                            svgItem.style.fill = "lime"
+
+                        } else alert("svgItem " + search.replace('?', '') + " not found!");
+
+                    } else alert("map.contentDocument not found!");
+
+                } else alert("object svgMap not found!");
+
+            }
+
+        };
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
